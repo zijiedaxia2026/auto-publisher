@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """腾讯云后台批量删除指定文章（定位卡片→删除→确认→复核）。"""
-import os
 import json, time
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
-BASE = Path(os.environ.get("FMJ_BASE", os.getcwd()) + "")
+BASE = Path("/Users/lisa/WorkBuddy/内容运营")
 STATE = BASE / ".publish-state" / "腾讯云.json"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
 BASEURL = "https://cloud.tencent.com/developer/creator/article"
@@ -22,6 +21,10 @@ DELS = [
 ]
 
 def log(m): print(f"[{time.strftime('%H:%M:%S')}] {m}", flush=True)
+
+import sys as _sys
+if len(_sys.argv) > 1:
+    DELS = [(f"arg-{a}", a) for a in _sys.argv[1:]]
 
 def goto_page(pg, n):
     try:

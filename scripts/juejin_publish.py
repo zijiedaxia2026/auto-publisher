@@ -13,21 +13,20 @@
   - 编辑摘要：自动生成 100/100，无需填。
 成功判据：URL 跳 https://juejin.cn/published（或含 /post/）。
 """
-import os
 import json, time
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
-BASE = Path(os.environ.get("FMJ_BASE", os.getcwd()) + "")
+BASE = Path("/Users/lisa/WorkBuddy/内容运营")
 STATE = BASE / ".publish-state" / "掘金.json"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
 ARGS = ["--disable-blink-features=AutomationControlled", "--window-position=960,0", "--window-size=960,1080"]
 
 ARTS = [
-    {"f": "12-一家25天刷出17万星-storytold纯Rust重写创意软件全家桶-掘金版__待发布.md",
-     "title": "有人 25 天在 GitHub 刷出 17 万星：纯 Rust 重写了 Adobe、Office 和 AutoCAD",
-     "cover": "配图/12__xhs封面.png",
-     "cat": "人工智能", "tags": ["Rust", "开源"]},
+    {"f": "13-我哥把自己活埋了-双机互救血泪史-掘金版__待发布.md",
+     "title": "我哥把自己活埋了，还在保险柜里打了 1870 个求救电话——两个 AI 智能体的互救实录",
+     "cover": "配图/13_1_封面.png",
+     "cat": "人工智能", "tags": ["人工智能", "程序员"]},
 ]
 
 def log(m): print(f"[{time.strftime('%H:%M:%S')}] {m}", flush=True)

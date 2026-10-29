@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """完整拉掘金已发布文章（标题/链接/时间），翻页到底。"""
-import os
 import json, time
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
-BASE = Path(os.environ.get("FMJ_BASE", os.getcwd()) + "")
+BASE = Path("/Users/lisa/WorkBuddy/内容运营")
 STATE = BASE / ".publish-state" / "掘金.json"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
 ARGS = ["--disable-blink-features=AutomationControlled", "--window-position=960,0", "--window-size=1200,1000"]

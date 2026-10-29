@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """腾讯云后台：点页码 1..N 拉全部文章卡片（标题/状态/日期/ID）。"""
-import os
 import json, time
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
-BASE = Path(os.environ.get("FMJ_BASE", os.getcwd()) + "")
+BASE = Path("/Users/lisa/WorkBuddy/内容运营")
 STATE = BASE / ".publish-state" / "腾讯云.json"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
 
